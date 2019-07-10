@@ -232,7 +232,7 @@ Connecting to a VTAM session can be configuration specific beyond the defaults s
       ![Image description](img/mfs.panel.png)
 1. In the MFS panel enter the values:
     * PROCESS CODE: DISPLAY
-    * LAST NAME: LAST1
+    * LAST NAME: LAST1  
       ![Image description](img/mfs.input.png)
     * Press Enter to see the results below
       ![Image description](img/mfs.result.png)
