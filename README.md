@@ -225,17 +225,17 @@ Connecting to a VTAM session can be configuration specific beyond the defaults s
     * The APPLID will correspond to value entered for IST_VTAM_IMSAPPLID in the [workflow variable properties file](workflows/ims/workflow_variables.properties)
 1. Initially the terminal session will be blank and will appear to remain inactive until the provisioning has completed.
     * When the sample application has connected with a VTAM terminal the session will look similar to the screen capture below.
-....![Image description](img/vtam.connected.png)
+      ![Image description](img/vtam.connected.png)
 1. To display an interactive panel for the sample application, use the MFS to service the process the request and send a reply back to the terminal.
     * Enter the command `/FOR IVTNO` to access the MFS panel for the sample application
-....![Image description](img/for.ivtno.png)
-....![Image description](img/mfs.panel.png)
+      ![Image description](img/for.ivtno.png)
+      ![Image description](img/mfs.panel.png)
 1. In the MFS panel enter the values:
     * PROCESS CODE: DISPLAY
     * LAST NAME: LAST1
-....![Image description](img/mfs.input.png)  
+      ![Image description](img/mfs.input.png)
     * Press Enter to see the results below
-....![Image description](img/mfs.result.png)        
+      ![Image description](img/mfs.result.png)
 ## Troubleshooting
 * IZUWF0105E   Workflow property file file-name is either not found or cannot be accessed
   * Typically, this error occurs when the file does not exist at the given path. If the file does exist, access permission to the file must be set by using the chmod command.
