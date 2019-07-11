@@ -211,31 +211,42 @@ The repository includes the following files:
 For more information about running a workflow see [Creating a workflow](https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.3.0/com.ibm.zosmfworkflows.help.doc/izuWFhpCreateWorkflowDialog.html) in the IBM Knowledge Center.
 
 ## Contacts Database Sample Application
-Upon a successful provisioning of the workflow using z/OSMF, a sample contacts database application will be running in an MPP region that has been initialized with a VTAM terminal through the use of the /OPNDST command. The application transaction code is IVTNO that will query a IMS database and respond according to the request parameters. You can query the database to retrieve contact information such as first name, last name, telephone extension, and zip code. 
+Upon a successful provisioning of the workflow using z/OSMF, a sample contacts database application will be running in an MPP region that has been initialized with a VTAM terminal through the use of the `/OPNDST` command. The application transaction code is **IVTNO** that will query a IMS database and respond according to the request parameters. You can query the database to retrieve contact information such as first name, last name, telephone extension, and zip code. 
 
-The application supports process code operations that include ADD, DELETE, UPDATE, DISPLAY and TADD. These process codes can be used with a request to operate on LAST NAME, FIRST NAME, EXTENSION NUMBER and ZIP CODE.
+The application supports process code operations that include **ADD**, **DELETE**, **UPDATE**, **DISPLAY** and **TADD**. These process codes can be used with a request to operate on **LAST NAME**, **FIRST NAME**, **EXTENSION NUMBER** and **ZIP CODE**.
 
 ## Steps Connecting to Sample Application
-Successful connectivity to the sample application requires that you establish a VTAM session before running the workflow that provisions IMS in z/OSMF. Ensure you have an active and connected x3270 session with VTAM. 
+Successful connectivity to the sample application requires that you establish a **VTAM** session **before** running the workflow that provisions IMS with z/OSMF. Ensure you have an **active** and **connected** **x3270** session with **VTAM**. 
 
-Connecting to a VTAM session can be configuration specific beyond the defaults so only a general guide will be demonstrated.
+Connecting to a VTAM session can be configuration specific beyond the defaults, so only a general guide will be demonstrated.
 
 1. Use the LOGON command to connect to a VTAM terminal session.
-    * [LOGON command documentation]( https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.3.0/com.ibm.zos.v2r3.istrdr0/rlogonsyn.htm)
-    * The APPLID will correspond to value entered for IST_VTAM_IMSAPPLID in the [workflow variable properties file](workflows/ims/workflow_variables.properties)
+    * [LOGON command documentation](https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.3.0/com.ibm.zos.v2r3.istrdr0/rlogonsyn.htm)
+    * The **APPLID** will correspond to the value entered for **IST_VTAM_IMSAPPLID** in the [workflow variable properties file](workflows/ims/workflow_variables.properties)
 1. Initially the terminal session will be blank and will appear to remain inactive until the provisioning has completed.
     * When the sample application has connected with a VTAM terminal the session will look similar to the screen capture below.
       ![Image description](img/vtam.connected.png)
-1. To display an interactive panel for the sample application, use the MFS to service the process the request and send a reply back to the terminal.
-    * Enter the command `/FOR IVTNO` to access the MFS panel for the sample application
+1. To display an interactive panel for the sample application, use the MFS service to the process the request and send a reply back to the terminal.
+    * Enter the command `/FOR IVTNO` to access the MFS panel for the sample application.
       ![Image description](img/for.ivtno.png)
       ![Image description](img/mfs.panel.png)
 1. In the MFS panel enter the values:
     * PROCESS CODE: DISPLAY
     * LAST NAME: LAST1  
       ![Image description](img/mfs.input.png)
-    * Press Enter to see the results below
+    * Press Enter to see the results below.
       ![Image description](img/mfs.result.png)
+## Steps Running the Sample Application
+Optionally, the sample application can be run at the IMS console using the applications transaction code IVTNO.
+1. Sign onto an IMS user terminal session.
+    * Example screen capture of a IMS terminal session
+      ![Image description](img/ims.terminal.png)
+    * Using the value set for **DFS_IMS_SSID** entered in the [workflow variable properties file](workflows/ims/workflow_variables.properties) use the command format `<DFS_IMS_SSID>IVTNO     DISPLAY   LAST1     .`. This command follows the syntax `<DFS_IMS_SSID><Transaction Code><5 spaces><Process code><3 spaces><Last Name><5 spaces><period>`.
+    * For example, running command `IMS1IVTNO     DISPLAY   LAST1     .`
+      ![Image description](img/ims.display.cmd.png)
+    * The results will be showing in teh IMS terminal session.
+      ![Image description](img/ims.result.cmd.png)
+
 ## Troubleshooting
 * IZUWF0105E   Workflow property file file-name is either not found or cannot be accessed
   * Typically, this error occurs when the file does not exist at the given path. If the file does exist, access permission to the file must be set by using the chmod command.
