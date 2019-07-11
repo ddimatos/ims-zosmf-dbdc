@@ -225,27 +225,27 @@ Connecting to a VTAM session can be configuration specific beyond the defaults, 
     * The **APPLID** will correspond to the value entered for **IST_VTAM_IMSAPPLID** in the [workflow variable properties file](workflows/ims/workflow_variables.properties)
 1. Initially the terminal session will be blank and will appear to remain inactive until the provisioning has completed.
     * When the sample application has connected with a VTAM terminal the session will look similar to the screen capture below.
-      ![Image description](img/vtam.connected.png)
+      ![VTAM connected](img/vtam.connected.png)
 1. To display an interactive panel for the sample application, use the MFS service to the process the request and send a reply back to the terminal.
     * Enter the command `/FOR IVTNO` to access the MFS panel for the sample application.
-      ![Image description](img/for.ivtno.png)
-      ![Image description](img/mfs.panel.png)
+      ![VTAM for ivtno cmd](img/for.ivtno.png)
+      ![MFS application panel](img/mfs.panel.png)
 1. In the MFS panel enter the values:
     * PROCESS CODE: DISPLAY
     * LAST NAME: LAST1  
-      ![Image description](img/mfs.input.png)
+      ![MFS application input](img/mfs.input.png)
     * Press Enter to see the results below.
-      ![Image description](img/mfs.result.png)
+      ![MFS application result](img/mfs.result.png)
 ## Steps Running the Sample Application
 Optionally, the sample application can be run at the IMS console using the applications transaction code IVTNO.
 1. Sign onto an IMS user terminal session.
     * Example screen capture of a IMS terminal session
-      ![Image description](img/ims.terminal.png)
+      ![IMS terminal session example](img/ims.terminal.png)
     * Using the value set for **DFS_IMS_SSID** entered in the [workflow variable properties file](workflows/ims/workflow_variables.properties) use the command format `<DFS_IMS_SSID>IVTNO     DISPLAY   LAST1     .`. This command follows the syntax `<DFS_IMS_SSID><Transaction Code><5 spaces><Process code><3 spaces><Last Name><5 spaces><period>`.
     * For example, running command `IMS1IVTNO     DISPLAY   LAST1     .`
-      ![Image description](img/ims.display.cmd.png)
+      ![ims display command example](img/ims.display.cmd.png)
     * The results will be showing in teh IMS terminal session.
-      ![Image description](img/ims.result.cmd.png)
+      ![IMS Display tran result](img/ims.result.cmd.png)
 
 ## Troubleshooting
 * IZUWF0105E   Workflow property file file-name is either not found or cannot be accessed
