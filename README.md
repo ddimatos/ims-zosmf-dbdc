@@ -241,7 +241,10 @@ Optionally, the sample application can be run at the IMS console using the appli
 1. Sign onto an IMS user terminal session.
     * Example screen capture of a IMS terminal session
       ![IMS terminal session example](img/ims.terminal.png)
-    * Using the value set for **DFS_IMS_SSID** entered in the [workflow variable properties file](workflows/ims/workflow_variables.properties) use the command format `<DFS_IMS_SSID>IVTNO     DISPLAY   LAST1     .`. This command follows the syntax `<DFS_IMS_SSID><Transaction Code><5 spaces><Process code><3 spaces><Last Name><5 spaces><period>`.
+    * Using the value set for **DFS_IMS_SSID** entered in the [workflow variable properties file](workflows/ims/workflow_variables.properties) use the command format `<DFS_IMS_SSID>IVTNO     DISPLAY   LAST1     .`. 
+    
+    This command follows the syntax:
+      `<DFS_IMS_SSID><Transaction Code><5 spaces><Process code><3 spaces><Last Name><5 spaces><period>`.
     * For example, running command `IMS1IVTNO     DISPLAY   LAST1     .`
       ![ims display command example](img/ims.display.cmd.png)
     * The results will be showing in teh IMS terminal session.
