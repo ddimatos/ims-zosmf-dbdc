@@ -239,16 +239,17 @@ Connecting to a VTAM session can be configuration specific beyond the defaults, 
 ## Steps Running the Sample Application
 Optionally, the sample application can be run at the IMS console using the applications transaction code IVTNO.
 1. Sign onto an IMS user terminal session.
-    * Example screen capture of a IMS terminal session
+    * Below is a screen capture of a IMS terminal session
       ![IMS terminal session example](img/ims.terminal.png)
-    * Using the value set for **DFS_IMS_SSID** entered in the [workflow variable properties file](workflows/ims/workflow_variables.properties) use the command format `<DFS_IMS_SSID>IVTNO     DISPLAY   LAST1     .`. 
-    
-    This command follows the syntax:  
-      `<DFS_IMS_SSID><Transaction Code><5 spaces><Process code><3 spaces><Last Name><5 spaces><period>`.
-    * For example, running command `IMS1IVTNO     DISPLAY   LAST1     .`
+    * Using the ims reply number which can be found alongside the IMS READY message, use the command syntax:
+      `<IMS REPLY NUMBER><Transaction Code><5 spaces><Process code><3 spaces><Last Name><5 spaces><period>`
+    * In the following screen capture, the reply number is 28 and the command run is: `28IVTNO     DISPLAY   LAST1     .`
       ![ims display command example](img/ims.display.cmd.png)
-    * The results will be showing in teh IMS terminal session. 
-      ![IMS Display tran result](img/ims.result.cmd.png)
+    * The IMS console will display a new reply number 29 and command it ran. 
+      * To obtain the result, run the command `29/.` which follows syntasx `<IMS REPLY NUMBER></.>`
+        ![IMS Display tran result](img/ims.reply.display.cmd.png)
+    * The results will be shown in the IMS terminal session. 
+      ![IMS Display tran result](img/ims.result.display.cmd.png)
 
 ## Troubleshooting
 * IZUWF0105E   Workflow property file file-name is either not found or cannot be accessed
