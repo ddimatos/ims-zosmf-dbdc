@@ -211,7 +211,7 @@ The repository includes the following files:
 For more information about running a workflow see [Creating a workflow](https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.3.0/com.ibm.zosmfworkflows.help.doc/izuWFhpCreateWorkflowDialog.html) in the IBM Knowledge Center.
 
 ## Contacts Database Sample Application
-Upon a successful provisioning of the workflow using z/OSMF, a sample contacts database application will be running in an MPP region that has been initialized with a VTAM terminal through the use of the `/OPNDST` command. The application transaction code is **IVTNO** that will query a IMS database and respond according to the request parameters. You can query the database to retrieve contact information such as first name, last name, telephone extension, and zip code. 
+Upon successful provisioning of the workflow using z/OSMF, a sample contacts database application will be running in an MPP region that has been initialized with a VTAM terminal through the use of the `/OPNDST` command. The application transaction code is **IVTNO** that will query a IMS database and respond according to the request parameters. You can query the database to retrieve contact information such as first name, last name, telephone extension, and zip code. 
 
 The application supports process code operations that include **ADD**, **DELETE**, **UPDATE**, **DISPLAY** and **TADD**. These process codes can be used with a request to operate on **LAST NAME**, **FIRST NAME**, **EXTENSION NUMBER** and **ZIP CODE**.
 
@@ -237,7 +237,7 @@ Connecting to a VTAM session can be configuration specific beyond the defaults, 
     * Press Enter to see the results below.
       ![MFS application result](img/mfs.result.png)
 ## Steps Running the Sample Application
-Optionally, the sample application can be run at the IMS console using the applications transaction code IVTNO.
+Optionally, the sample application can be run in the IMS console using the applications transaction code IVTNO.
 1. Sign onto an IMS user terminal session.
     * Below is a screen capture of a IMS terminal session
       ![IMS terminal session example](img/ims.terminal.png)
@@ -245,10 +245,10 @@ Optionally, the sample application can be run at the IMS console using the appli
       `<IMS REPLY NUMBER><Transaction Code><5 spaces><Process code><3 spaces><Last Name><5 spaces><period>`
     * In the following screen capture, the reply number is 28 and the command run is: `28IVTNO     DISPLAY   LAST1     .`
       ![ims display command example](img/ims.display.cmd.png)
-    * The IMS console will display a new reply number 29 and command it ran. 
+    * The IMS console will display a new reply number 29 and the command it ran. 
       * To obtain the result, run the command `29/.` which follows syntasx `<IMS REPLY NUMBER></.>`
         ![IMS Display tran result](img/ims.reply.display.cmd.png)
-    * The results will be shown in the IMS terminal session. 
+    * The result **FIRST1    8-111-1111D01/R010001  IMS1** will be shown in the IMS terminal session. 
       ![IMS Display tran result](img/ims.result.display.cmd.png)
 
 ## Troubleshooting
